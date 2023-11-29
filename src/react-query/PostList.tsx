@@ -1,30 +1,43 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import post from "../routing/hooks/UsePost";
+import Usepost from "../routing/hooks/UsePost";
 
 const PostList = () => {
-  const [userID, GetUserID] = useState<number>();
-  const { data: posts, isLoading, error } = post(userID);
-  if (error) return <p>{error.message}</p>;
+  const pageSize = 10;
+  const {
+    data: posts,
+    isLoading,
+    error,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = Usepost({ pageSize });
 
+  if (error) return <p>{error.message}</p>;
+  if (posts?.pages?.length == 0) {
+    return "working on that";
+  }
   return (
     <>
-      <select
-        className="form-select mb-3"
-        onChange={(event) => GetUserID(parseInt(event.target.value))}
-        value={userID}
-      >
-        <option value="1">User 1</option>
-        <option value="2">User 2</option>
-        <option value="3">User 3</option>
-      </select>
       <ul className="list-group">
-        {posts?.map((post) => (
-          <li key={post.id} className="list-group-item">
-            {post.title}
-          </li>
+        {posts?.pages.map((post) => (
+          <React.Fragment>
+            {post.map((po) => (
+              <li key={po.id} className="list-group-item">
+                {po.title}
+              </li>
+            ))}
+          </React.Fragment>
         ))}
       </ul>
+
+      <button
+        className="btn btn-primary ms-1"
+        disabled={isFetchingNextPage}
+        onClick={() => fetchNextPage()}
+      >
+        {isFetchingNextPage ? "loading" : "next"}
+      </button>
     </>
   );
 };

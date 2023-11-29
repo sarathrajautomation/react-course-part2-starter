@@ -1,0 +1,61 @@
+.vercel {
+    align-items: center;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 145px 250px;
+    position: relative;
+  }
+  
+  .vercel .frame {
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    width: 759px;
+  }
+  
+  .vercel .div {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+  }
+  
+  .vercel .develop-preview-ship {
+    color: transparent;
+    font-family: "Inter-ExtraBold", Helvetica;
+    font-size: 82px;
+    font-weight: 800;
+    letter-spacing: -6.56px;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .vercel .text-wrapper {
+    color: #ffffff;
+  }
+  
+  .vercel .span {
+    color: #a830a3;
+  }
+  
+  .vercel .p {
+    align-self: stretch;
+    color: #888888;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: -0.42px;
+    line-height: 31px;
+    position: relative;
+    text-align: center;
+  }
+  
